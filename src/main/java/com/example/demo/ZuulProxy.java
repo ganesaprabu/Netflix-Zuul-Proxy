@@ -12,12 +12,10 @@ import com.netflix.zuul.exception.ZuulException;
 public class ZuulProxy extends ZuulFilter{
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
 	@Override
 	public boolean shouldFilter() {
 		return true;
 	}
-
 	@Override
 	public Object run() throws ZuulException {
 		logger.info(
@@ -26,15 +24,12 @@ public class ZuulProxy extends ZuulFilter{
 				RequestContext.getCurrentContext().getRequest().getRequestURI()); 
 		return null;
 	}
-
 	@Override
 	public String filterType() {
 		return "pre";
 	}
-
 	@Override
 	public int filterOrder() {
 		return 1;
 	}
-	
 }
